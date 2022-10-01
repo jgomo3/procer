@@ -2,6 +2,12 @@
 
 A reasonable good default `to_proc` method for all objects.
 
+Install with:
+
+```
+gem install procer
+```
+
 Whe you require Procer, all objects will have a default `to_proc`
 method which will try to call one of the following methods, in the
 given order:
