@@ -78,7 +78,7 @@ implements `to_proc` and not something that necesarilly implement
 `values_at`.
 
 Notice that if the object implements `[]` that will triumph over
-`===`.  It was expected when I tried to use Integers as the object, as
+`===`.  It was unexpected when I tried to use Integers as the object, as
 they implement `[]` as a way to access it's binary form:
 
 ```ruby
