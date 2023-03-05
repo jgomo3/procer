@@ -1,5 +1,9 @@
 # Procer
 
+**NOTE: Experimental. Use it to experience what a default `to_proc`
+could have been. For production code, I recommend an explicit
+transformation, like the one provided by the gem `jgomo3-func`**.
+
 A reasonable good default `to_proc` method for all objects.
 
 Install with:
@@ -8,7 +12,7 @@ Install with:
 gem install procer
 ```
 
-Whe you require Procer, all objects will have a default `to_proc`
+When you require Procer, all objects will have a default `to_proc`
 method which will try to call one of the following methods, in the
 given order:
 
@@ -16,12 +20,12 @@ given order:
  - `[]`
  - `===`
  
- Many methods which receive a block, can benefit greatlly from this
+ Many methods which receive a block, can benefit greatly from this
  because you can now pass an object to perform the block role.
  
- Think of the Enumerable module and all it's methods.
+ Think of the Enumerable module and all its methods.
  
- Many objects define `===`, but not `to_proc`. So they will be nicelly
+ Many objects define `===`, but not `to_proc`. So they will be nicely
  usable in a `case/when` expression, but not in other contexts.
  
  This is the case of classes and ranges, which you can use in
@@ -41,8 +45,8 @@ given order:
 # => [3, 20]
 ```
 
-Also, Hashes already implement `to_proc` and that is really useful
-with enumerator. We can use it as a transformation table with `map`:
+Also, Hashes already implement `to_proc` and that is useful
+with Enumerator. We can use it as a transformation table with `map`:
 
 ```ruby
 
@@ -66,7 +70,7 @@ table = ['zero', 'one', 'two']
 # => ['two', 'zero', 'one']
 ```
 
-Alternativaly you could have use `values_at`:
+Alternatively, you could have used `values_at`:
 
 ```ruby
 table.values_at([3, 1, 2]) # In the Hash example
@@ -74,12 +78,12 @@ table.values_at([2, 0, 1]) # In the Array example
 ```
 
 But the map solution is more generic and `table` can be anything that
-implements `to_proc` and not something that necesarilly implement
+implements `to_proc` and not something that necessarily implements
 `values_at`.
 
 Notice that if the object implements `[]` that will triumph over
 `===`.  It was unexpected when I tried to use Integers as the object, as
-they implement `[]` as a way to access it's binary form:
+they implement `[]` as a way to access their binary form:
 
 ```ruby
 5 # b101
